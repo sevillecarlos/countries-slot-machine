@@ -8,17 +8,17 @@ const ListCountryForm = () => {
   const dispatch = useAppDispatch();
   const country = useAppSelector((state: RootStateOrAny) => state.countries);
 
-  console.log(country?.listCountries);
-
   const submitListCountryForm = (e: any) => {
     const { value } = e.target;
     e.preventDefault();
     if (value !== "") {
+        console.log(value)
       dispatch(getListCountries(value));
     } else {
       dispatch(countriesAction.clearListCountries());
     }
   };
+
   return (
     <div>
       <Form className="unique-contry-form" autoComplete="off">
@@ -31,13 +31,17 @@ const ListCountryForm = () => {
           />
         </Form.Group>{" "}
       </Form>
-      {country?.listCountries?.map((country: any, i: number) => (
-        <ul key={i}>
-          <li>
-            {country.countryName} {country.flag}
-          </li>
-        </ul>
-      ))}
+      {country?.status === "success" && !country?.listCountries?.notFoundMsg ? (
+        country?.listCountries?.map((country: any, i: number) => (
+          <ul key={i}>
+            <li>
+              {country.countryName} {country.flag}
+            </li>
+          </ul>
+        ))
+      ) : (
+        <p>{country?.listCountries?.notFoundMsg}</p>
+      )}
     </div>
   );
 };
