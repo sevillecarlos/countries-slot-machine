@@ -1,12 +1,26 @@
 import React from "react";
+import { Container, Row, Col } from "react-bootstrap";
 import UniqueCountryForm from "../components/UniqueCountryForm";
 import ListCountryForm from "../components/ListCountryForm";
+import ListAllCountryForm from "../components/ListAllCountryForm";
+
 const Countries = () => {
   return (
     <div>
-      <UniqueCountryForm />
-      <br />
-      <ListCountryForm />
+      <Container>
+        <Row>
+          <Col>
+            {" "}
+            <UniqueCountryForm />
+            <br />
+            <ListCountryForm />
+          </Col>
+
+          <Col>
+            <ListAllCountryForm />
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 };
