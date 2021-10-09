@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 
 const initialState = {
   uniqueCountry: null,
@@ -7,19 +8,14 @@ const initialState = {
 
 export const getUniqueCountry = createAsyncThunk(
   "auth/getUniqueCountry",
-  async (countryQuery: string) => {
+  async (countryQuery: any) => {
     try {
-      const res = await fetch(`http://localhost:8080/country`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(countryQuery),
+      const res: any = await axios.post(`http://localhost:8080/country`, {
+        countryQuery,
       });
-      const data = await res.json();
-      return data;
+      return res.data;
     } catch (error) {
-      console.log(error);
+      throw error;
     }
   }
 );
