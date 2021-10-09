@@ -1,9 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap");
 body {
   margin: 0;
-  background-color: #2ec4b6 !important;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  background-color: #ffffff!important;
+  font-family: "Source Code Pro", monospace !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

@@ -1,0 +1,55 @@
+.home {
+  background-color: #d6d6d6 !important;
+  width: 70%;
+  margin: 8vw auto;
+  padding: 5px;
+  border-radius: 20px;
+  box-shadow: -1px 1px 18px -3px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: -1px 1px 18px -3px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -1px 1px 18px -3px rgba(0, 0, 0, 0.75);
+  position: relative;
+}
+
+.home a {
+  text-decoration: none !important;
+  color: rgb(56, 53, 53) !important;
+  font-size: 2vw !important;
+  margin-left: 1px;
+}
+.home * {
+  padding: 5px;
+}
+
+.home-container {
+  margin: 10% auto;
+}
+.countries-container {
+  width: 50%;
+  height: 5500vh !important;
+  padding: 100px;
+}
+.slot-machine-container {
+  padding: 100px;
+  width: 50%;
+}
+.earth {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 90px;
+  position: absolute;
+  height: 90px;
+  margin-top: 5%;
+  background-image: url("../../assets/earth.jpeg");
+  border-radius: 50%;
+  background-size: cover;
+  animation: spin 20s linear alternate infinite;
+}
+
+@keyframes spin {
+  100% {
+    background-position: 100%;
+  }
+}

@@ -4,7 +4,7 @@ import UniqueCountryForm from "../components/UniqueCountryForm";
 const Countries = () => {
   return (
     <div>
-      <UniqueCountryForm />
+      <UniqueCountryForm  />
     </div>
   );
 };

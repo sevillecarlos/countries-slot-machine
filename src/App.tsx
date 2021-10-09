@@ -1,11 +1,20 @@
 import React from "react";
-import Home from "./views/Home";
+import Routes from "./routes";
+import { Navbar, Container } from "react-bootstrap";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <Home />
+      <Navbar className="app-nav-bar">
+        <Container>
+          <Navbar.Brand>
+            <span className="countries-title-brand">Countries</span>&{" "}
+            <span className="slot-machine-title-brand">Slot Machine</span>
+          </Navbar.Brand>
+        </Container>
+      </Navbar>
+      <Routes />
     </div>
   );
 }
