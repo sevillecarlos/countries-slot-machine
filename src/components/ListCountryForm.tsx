@@ -1,35 +1,43 @@
-import React, { useState } from "react";
-import { Button, Form } from "react-bootstrap";
+import React from "react";
+import { Form } from "react-bootstrap";
 import { RootStateOrAny } from "react-redux";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
-import { getUniqueCountry } from "../app/slices/countries";
+import { countriesAction, getListCountries } from "../app/slices/countries";
 
 const ListCountryForm = () => {
   const dispatch = useAppDispatch();
   const country = useAppSelector((state: RootStateOrAny) => state.countries);
 
-  const [countryQuery, setCountryQuery] = useState("");
+  console.log(country?.listCountries);
 
   const submitListCountryForm = (e: any) => {
+    const { value } = e.target;
     e.preventDefault();
-   
+    if (value !== "") {
+      dispatch(getListCountries(value));
+    } else {
+      dispatch(countriesAction.clearListCountries());
+    }
   };
   return (
     <div>
-      <Form className="unique-contry-form" onSubmit={submitListCountryForm}>
+      <Form className="unique-contry-form" autoComplete="off">
         <Form.Group className="mb-3" controlId="formCountryName">
           <Form.Label>Type Country Name</Form.Label>
           <Form.Control
             type="text"
             placeholder="Enter country name"
-            onChange={(e) => setCountryQuery(e.target.value)}
+            onChange={submitListCountryForm}
           />
-        </Form.Group>
-        <Button type="submit">Submit</Button>
+        </Form.Group>{" "}
       </Form>
-      <div>
-        
-      </div>
+      {country?.listCountries?.map((country: any, i: number) => (
+        <ul key={i}>
+          <li>
+            {country.countryName} {country.flag}
+          </li>
+        </ul>
+      ))}
     </div>
   );
 };

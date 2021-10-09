@@ -31,14 +31,15 @@ const UniqueCountryForm = () => {
         <Button type="submit">Submit</Button>
       </Form>
       <div>
-        {country?.uniqueCountry !== null &&
+        {country?.status === "success" &&
+        country?.uniqueCountry !== null &&
         !country?.uniqueCountry?.notFoundMsg ? (
-          <ul key={country?.uniqueCountry?.countryName}>
+          <ul>
             <li>
               Country: {country?.uniqueCountry?.countryName}{" "}
               {country?.uniqueCountry?.flag}
             </li>
-            <li>Capital: {country?.uniqueCountry?.capital?.join(', ')}</li>
+            <li>Capital: {country?.uniqueCountry?.capital?.join(", ")}</li>
             <li>Region: {country?.uniqueCountry?.region}</li>
           </ul>
         ) : (

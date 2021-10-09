@@ -3,6 +3,7 @@ import axios from "axios";
 
 const initialState = {
   uniqueCountry: null,
+  listCountries: Array<any>(),
   status: "idle",
 };
 
@@ -20,10 +21,28 @@ export const getUniqueCountry = createAsyncThunk(
   }
 );
 
+export const getListCountries = createAsyncThunk(
+  "auth/getListCountries",
+  async (countryQuery: any) => {
+    try {
+      const res: any = await axios.post(`http://localhost:8080/countries`, {
+        countryQuery,
+      });
+      return res.data;
+    } catch (error) {
+      throw error;
+    }
+  }
+);
+
 const countriesSlice = createSlice({
   name: "auth",
   initialState,
-  reducers: {},
+  reducers: {
+    clearListCountries(state) {
+      state.listCountries = [];
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(getUniqueCountry.fulfilled, (state, action) => {
       state.status = "success";
@@ -33,6 +52,17 @@ const countriesSlice = createSlice({
       state.status = "loading";
     });
     builder.addCase(getUniqueCountry.rejected, (state) => {
+      state.status = "reject";
+    });
+    /**********************************************************************/
+    builder.addCase(getListCountries.fulfilled, (state, action) => {
+      state.status = "success";
+      state.listCountries = action.payload;
+    });
+    builder.addCase(getListCountries.pending, (state) => {
+      state.status = "loading";
+    });
+    builder.addCase(getListCountries.rejected, (state) => {
       state.status = "reject";
     });
   },
