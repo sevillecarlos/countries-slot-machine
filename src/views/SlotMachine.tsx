@@ -1,31 +1,38 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import "./style/SlotMachine.css";
-import { getRandomNumber } from "../helpers/getRandomNumber";
-import { SLOTMACHINE } from "../config";
+import { getRandomNumber, } from "../helpers";
+import { SLOT_MACHINE } from "../config";
 
 const SlotMachine = () => {
-  const [reelNumber, setReelNumber] = useState({
-    reelNumber1: 0,
-    reelNumber2: 0,
-    reelNumber3: 0,
+
+  const [reels, setReels] = useState({
+    reel1: SLOT_MACHINE.reel1[0],
+    reel2: SLOT_MACHINE.reel2[0],
+    reel3: SLOT_MACHINE.reel3[0],
   });
+  const [coins, setCoins] = useState(20);
 
   const spin = () => {
-    setReelNumber({
-      reelNumber1: getRandomNumber(0, SLOTMACHINE.reel1.length),
-      reelNumber2: getRandomNumber(0, SLOTMACHINE.reel2.length),
-      reelNumber3: getRandomNumber(0, SLOTMACHINE.reel3.length),
+    setCoins((prevState: any) => prevState - 1);
+
+    setReels({
+      reel1: SLOT_MACHINE.reel1[getRandomNumber(0, SLOT_MACHINE.reel1.length)],
+      reel2: SLOT_MACHINE.reel2[getRandomNumber(0, SLOT_MACHINE.reel2.length)],
+      reel3: SLOT_MACHINE.reel3[getRandomNumber(0, SLOT_MACHINE.reel3.length)],
     });
+
   };
 
-  console.log(reelNumber)
   return (
     <div>
+      <div className="coins-container">
+        <span>{coins}</span>
+      </div>
       <div className="slot-machine-container">
-        <span>{SLOTMACHINE.reel1[reelNumber.reelNumber1]}</span>
-        <span>{SLOTMACHINE.reel2[reelNumber.reelNumber2]}</span>
-        <span>{SLOTMACHINE.reel3[reelNumber.reelNumber3]}</span>
+        <span>{reels.reel1}</span>
+        <span>{reels.reel2}</span>
+        <span>{reels.reel3}</span>
       </div>
       <div className="slot-machine-btn-container">
         <Button onClick={spin}>Spin</Button>

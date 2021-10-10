@@ -1,4 +1,4 @@
-export const SLOTMACHINE = {
+export const SLOT_MACHINE = {
   reel1: [
     "cherry",
     "lemon",
@@ -30,3 +30,4 @@ export const SLOTMACHINE = {
     "lemon",
   ],
 };
+
