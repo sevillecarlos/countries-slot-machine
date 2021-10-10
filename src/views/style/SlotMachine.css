@@ -1,15 +1,15 @@
 .slot-machine-container {
-  border: 2px solid black !important;
   padding: 50px;
   width: 70%;
+  text-align: center;
   margin: auto;
 }
 .slot-machine-container span {
-  font-size: 3vw;
+  font-size: 5vw;
   padding: 50px;
 }
 
-.slot-machine-btn-container{
-    text-align: center;
-    float: right;
+.slot-machine-btn-container {
+  text-align: center;
+  float: right;
 }

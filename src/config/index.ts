@@ -1,3 +1,5 @@
+
+/*Slot machine reels order */
 export const SLOT_MACHINE = {
   reel1: [
     "cherry",

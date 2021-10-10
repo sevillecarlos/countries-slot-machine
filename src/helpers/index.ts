@@ -2,6 +2,7 @@ export const getRandomNumber = (max: number, min: number) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
+/*Slot machine rewards rules, only consider pairs a match if they are in order from left to right*/
 export const slotMachineRewardRules = (reels: {
   reel1: string;
   reel2: string;
@@ -38,4 +39,28 @@ export const slotMachineRewardRules = (reels: {
   if (reel1 === "lemon" && reel2 === "lemon" && reel3 === "lemon") {
     return 3;
   }
+  return 0;
+};
+
+export const convertFruitTextToEmoji = (fruitText: string) => {
+  let emojiFruit;
+  switch (fruitText) {
+    case "cherry":
+      emojiFruit = "🍒";
+      break;
+    case "apple":
+      emojiFruit = "🍎";
+      break;
+    case "banana":
+      emojiFruit = "🍌";
+      break;
+    case "lemon":
+      emojiFruit = "🍋";
+      break;
+    default:
+      emojiFruit = "";
+      break;
+  }
+
+  return emojiFruit;
 };
