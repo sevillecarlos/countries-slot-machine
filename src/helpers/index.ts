@@ -41,7 +41,7 @@ export const slotMachineRewardRules = (reels: {
   }
   return 0;
 };
-
+//Convert the fruit text into emoji
 export const convertFruitTextToEmoji = (fruitText: string) => {
   let emojiFruit;
   switch (fruitText) {

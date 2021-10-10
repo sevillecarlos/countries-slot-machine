@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "react-bootstrap";
 import "./style/SlotMachine.css";
 import {
@@ -15,20 +15,58 @@ const SlotMachine = () => {
     reel3: SLOT_MACHINE.reel3[0],
   });
   const [coins, setCoins] = useState(20);
-
   const [gainCoins, setGainCoins] = useState(0);
+
+  const [letReelSpin, setLetReelSpin] = useState({
+    reel1: false,
+    reel2: false,
+    reel3: false,
+    finish: false,
+  });
+
+  const spinningReel = (reel: string, nextReel: string) => {
+    const spinningReel = setInterval(() => {
+      setReels((prevState: any) => {
+        return {
+          ...prevState,
+          [reel]:
+            SLOT_MACHINE[reel][getRandomNumber(0, SLOT_MACHINE[reel].length)],
+        };
+      });
+    }, 100);
+
+    setTimeout(() => {
+      clearInterval(spinningReel);
+      setLetReelSpin((prevState: any) => {
+        return { ...prevState, [reel]: false, [nextReel]: true };
+      });
+    }, 1000);
+  };
 
   const spin = () => {
     setCoins((prevState: any) => prevState - 1);
-    setReels({
-      reel1: SLOT_MACHINE.reel1[getRandomNumber(0, SLOT_MACHINE.reel1.length)],
-      reel2: SLOT_MACHINE.reel2[getRandomNumber(0, SLOT_MACHINE.reel2.length)],
-      reel3: SLOT_MACHINE.reel3[getRandomNumber(0, SLOT_MACHINE.reel3.length)],
+    setLetReelSpin((prevState: any) => {
+      return { ...prevState, reel1: true };
     });
-    const rewardsCoins = slotMachineRewardRules(reels);
-    setGainCoins(rewardsCoins);
-    setCoins((prevState: any) => prevState + rewardsCoins);
   };
+
+  useEffect(() => {
+    if (letReelSpin.reel1) {
+      spinningReel("reel1", "reel2");
+    }
+    if (letReelSpin.reel2) {
+      spinningReel("reel2", "reel3");
+    }
+    if (letReelSpin.reel3) {
+      spinningReel("reel3", "finish");
+    }
+    if (letReelSpin.finish) {
+        
+      const rewardsCoins = slotMachineRewardRules(reels);
+      setGainCoins(rewardsCoins);
+      setCoins((prevState: any) => prevState + rewardsCoins);
+    }
+  }, [letReelSpin, reels]);
 
   return (
     <div>
