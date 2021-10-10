@@ -7,8 +7,6 @@ const Home = () => {
       <div className="home-container">
         <Router>
           <span className="countries-container">
-            {/* <span className="earth"></span> */}
-
             <Link className="countries" to="/countries">
               Countries
             </Link>

@@ -5,7 +5,6 @@ import ListCountryForm from "../components/ListCountryForm";
 import ListAllCountryForm from "../components/ListAllCountryForm";
 
 const Countries = () => {
-  console.log('Render..')
   return (
     <div>
       <Container>
