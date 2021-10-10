@@ -1,5 +1,5 @@
 export const getRandomNumber = (max: number, min: number) => {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+  return Math.floor(Math.random() * (max - min)) + min;
 };
 
 /*Slot machine rewards rules, only consider pairs a match if they are in order from left to right*/

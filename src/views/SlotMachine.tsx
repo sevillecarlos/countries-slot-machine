@@ -9,6 +9,8 @@ import {
 import { SLOT_MACHINE, REELS_SPINNING_TIMER } from "../config";
 
 let spinReelTimer: any = null;
+const slotMachineMap = new Map(Object.entries(SLOT_MACHINE));
+
 const SlotMachine = () => {
   //State
   const [reels, setReels] = useState({
@@ -30,17 +32,17 @@ const SlotMachine = () => {
     next: "",
   });
   //Functions
+
   const spinningReel = useCallback((reel: string) => {
     spinReelTimer = setTimeout(() => {
       setReels((prevState: any) => {
         return {
           ...prevState,
-          [reel]:
-            SLOT_MACHINE.reel1[getRandomNumber(0, SLOT_MACHINE.reel1.length)],
+          [reel]: slotMachineMap.get(reel)?.[getRandomNumber(8, 0)],
         };
       });
       setSpinTimer((prevState: any) => prevState - 1);
-    }, 200);
+    }, 300);
   }, []);
 
   const spin = () => {
