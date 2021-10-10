@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { Form } from "react-bootstrap";
 import { RootStateOrAny } from "react-redux";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
@@ -8,16 +8,18 @@ const ListCountryForm = () => {
   const dispatch = useAppDispatch();
   const country = useAppSelector((state: RootStateOrAny) => state.countries);
 
-  const submitListCountryForm = (e: any) => {
-    const { value } = e.target;
-    e.preventDefault();
-    if (value !== "") {
-        console.log(value)
-      dispatch(getListCountries(value));
-    } else {
-      dispatch(countriesAction.clearListCountries());
-    }
-  };
+  const submitListCountryForm = useCallback(
+    (e: any) => {
+      e.preventDefault();
+      const { value } = e.target;
+      if (value !== "") {
+        dispatch(getListCountries(value));
+      } else {
+        dispatch(countriesAction.clearListCountries());
+      }
+    },
+    [dispatch]
+  );
 
   return (
     <div>
@@ -46,4 +48,4 @@ const ListCountryForm = () => {
   );
 };
 
-export default ListCountryForm;
+export default React.memo(ListCountryForm);

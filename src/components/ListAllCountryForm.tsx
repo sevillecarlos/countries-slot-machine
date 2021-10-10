@@ -86,4 +86,4 @@ const ListAllCountryForm = () => {
   );
 };
 
-export default ListAllCountryForm;
+export default React.memo(ListAllCountryForm);

@@ -23,15 +23,7 @@
 .home-container {
   margin: 10% auto;
 }
-.countries-container {
-  width: 50%;
-  height: 5500vh !important;
-  padding: 100px;
-}
-.slot-machine-container {
-  padding: 100px;
-  width: 50%;
-}
+
 .earth {
   top: 0;
   bottom: 0;

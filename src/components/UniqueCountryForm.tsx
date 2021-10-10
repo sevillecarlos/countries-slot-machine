@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { Button, Form } from "react-bootstrap";
 import { RootStateOrAny } from "react-redux";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
@@ -16,6 +16,7 @@ const UniqueCountryForm = () => {
     e.preventDefault();
     dispatch(getUniqueCountry(countryQuery.toLowerCase()));
   };
+
 
   return (
     <div>
@@ -50,4 +51,4 @@ const UniqueCountryForm = () => {
   );
 };
 
-export default UniqueCountryForm;
+export default React.memo(UniqueCountryForm);

@@ -5,6 +5,7 @@ import ListCountryForm from "../components/ListCountryForm";
 import ListAllCountryForm from "../components/ListAllCountryForm";
 
 const Countries = () => {
+  console.log('Render..')
   return (
     <div>
       <Container>
@@ -25,4 +26,4 @@ const Countries = () => {
   );
 };
 
-export default Countries;
+export default React.memo(Countries);
