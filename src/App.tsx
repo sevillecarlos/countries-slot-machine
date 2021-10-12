@@ -6,14 +6,15 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      <Navbar className="app-nav-bar">
-        <Container>
-          <Navbar.Brand>
-            <span className="countries-title-brand">Countries</span>&{" "}
-            <span className="slot-machine-title-brand">Slot Machine</span>
-          </Navbar.Brand>
-        </Container>
-      </Navbar>
+      <div className="ribbon">
+        <a
+          href="https://github.com/sevillecarlos/commerc-e"
+          rel="noreferrer"
+          target="_blank"
+        >
+          @sevillecarlos🍒
+        </a>
+      </div>
       <Routes />
     </div>
   );

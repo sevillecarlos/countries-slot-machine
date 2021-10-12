@@ -1,13 +1,17 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import UniqueCountryForm from "../components/UniqueCountryForm";
 import ListCountryForm from "../components/ListCountryForm";
 import ListAllCountryForm from "../components/ListAllCountryForm";
+import { useHistory } from "react-router";
 
 const Countries = () => {
+  const history = useHistory();
+
   return (
-    <div>
+    <div className='countries'>
       <Container>
+        <Button onClick={() => history.goBack()}>Go Back</Button>
         <Row>
           <Col>
             {" "}

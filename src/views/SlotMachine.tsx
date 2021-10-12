@@ -20,6 +20,8 @@ const SlotMachine = () => {
   });
   const [coins, setCoins] = useState(20);
   const [gainCoins, setGainCoins] = useState(0);
+  const [rolling, setRolling] = useState(false);
+
   const [spinTimer, setSpinTimer] = useState(REELS_SPINNING_TIMER);
   const [letReelSpin, setLetReelSpin] = useState({
     reel1: false,
@@ -42,11 +44,12 @@ const SlotMachine = () => {
         };
       });
       setSpinTimer((prevState: any) => prevState - 1);
-    }, 300);
+    }, 170);
   }, []);
 
   const spin = () => {
     setCoins((prevState: any) => prevState - 1);
+    setRolling(true);
     setLetReelSpin((prevState: any) => {
       return { ...prevState, reel1: true };
     });
@@ -69,6 +72,7 @@ const SlotMachine = () => {
     if (letReelSpin.finish) {
       const rewardsCoins = slotMachineRewardRules(reels);
       setGainCoins(rewardsCoins);
+      setRolling(false);
       setCoins((prevState: any) => prevState + rewardsCoins);
       setLetReelSpin((prevState: any) => {
         return { ...prevState, finish: false };
@@ -92,20 +96,32 @@ const SlotMachine = () => {
 
   return (
     <div>
-      <div className="coins-container">
-        <span>{coins}</span>
-      </div>
       {coins === 0 && <span>You dont have more coins</span>}
-      <div className="slot-machine-container">
-        <span>{convertFruitTextToEmoji(reels.reel1)}</span>
-        <span>{convertFruitTextToEmoji(reels.reel2)}</span>
-        <span>{convertFruitTextToEmoji(reels.reel3)}</span>
+      <div id="slot-details">
+        <div id="slot-top"></div>
       </div>
-      <div className="slot-machine-btn-container">
-        <Button disabled={coins === 0} onClick={spin}>
-          Spin
-        </Button>
+
+      <div className="slot-machine">
+        <h5> 🎰Slot Machine</h5>
+        <div className="slot-machine-reels ">
+          <span>{convertFruitTextToEmoji(reels.reel1)}</span>
+          <span>{convertFruitTextToEmoji(reels.reel2)}</span>
+          <span>{convertFruitTextToEmoji(reels.reel3)}</span>
+        </div>
+        <div className="slot-machine-coins-container">
+          <span>{coins.toString().padStart(8, "0")}</span>
+        </div>
+        <div className="slot-machine-spin-btn-container">
+          <button
+            className="pushable"
+            disabled={coins === 0 || rolling}
+            onClick={spin}
+          >
+            <span className="front">SPIN</span>
+          </button>
+        </div>
       </div>
+      <div id="slot-bottom"></div>
     </div>
   );
 };

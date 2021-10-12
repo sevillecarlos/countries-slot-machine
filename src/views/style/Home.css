@@ -1,31 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Ultra&display=swap");
 .home {
-  background-color: #d6d6d6 !important;
-  width: 70%;
-  margin: 8vw auto;
   padding: 5px;
+  width: 100%;
+  margin: 15vw auto;
+  text-align: center;
   border-radius: 20px;
-  box-shadow: -1px 1px 18px -3px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: -1px 1px 18px -3px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: -1px 1px 18px -3px rgba(0, 0, 0, 0.75);
-  position: relative;
 }
 
 .home a {
   text-decoration: none !important;
-  color: rgb(56, 53, 53) !important;
-  font-size: 2vw !important;
-  margin-left: 1px;
+  font-size: 3.2vw !important;
+  padding: 5px;
+  transition: 0.3s color;
+}
+.home a:hover {
+  color: rgb(68, 63, 63) !important;
+}
+.countries-link {
+  font-family: "Homemade Apple", cursive;
+  color: rgb(0, 0, 0);
+  text-shadow: 2px 2px #8f8f8f;
+}
+.slot-machine-link{
+  font-family: "Ultra", serif;
+  color: rgb(255, 1, 1);
+  text-shadow: 3px 3px #000000;
 }
 .home * {
-  padding: 5px;
+  padding: 10px;
 }
 
 .home-container {
   margin: 10% auto;
 }
-
-@keyframes spin {
-  100% {
-    background-position: 100%;
-  }
+.home-line-div {
+  border-left: 2px solid rgba(0, 0, 0, 0.952);
 }

@@ -1,15 +1,116 @@
-.slot-machine-container {
+.slot-machine {
   padding: 50px;
-  width: 70%;
+  width: 50%;
+  background-color: rgb(129, 28, 28) !important;
   text-align: center;
   margin: auto;
+  border-radius: 10px !important;
+  background-color: rgba(26, 9, 9, 0);
+  box-shadow: inset 0px 0px 15px rgba(0, 0, 0, 0.9);
+  
 }
-.slot-machine-container span {
-  font-size: 5vw;
-  padding: 50px;
+.slot-machine * {
+  padding: 10px;
+}
+.slot-machine h5 {
+  font-family: "Ultra", serif;
+  color: rgb(255, 0, 0);
+  text-shadow: 3px 3px #000000;
+  font-size: 3vw;
+}
+.slot-machine-reels span {
+  font-size: 6vw;
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  padding: 10px;
+  /* box-shadow: inset 0px 0px 10px rgba(0,0,0,0.9); */
+  border: 2px solid black;
+  background-color: beige;
+  border-radius: 10px;
+  margin-left: 5px;
 }
 
-.slot-machine-btn-container {
-  text-align: center;
-  float: right;
+.slot-machine-coins-container {
+  text-align: right;
+  border-radius: 15px;
+  width: 70%;
+  margin: auto;
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  background-color: rgba(30, 150, 14, 0.363);
+}
+.slot-machine-coins-container span {
+  font-size: 3vw !important;
+  font-weight: bold;
+  font-family: "DSEG14-Classic";
+  color: rgb(12, 12, 12);
+  text-shadow: 2px 2px #3a3838;
+}
+
+.pushable {
+  background: black;
+  border-radius: 50% !important;
+  border: none;
+  width: 6vw;
+  height: 6vw;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 4px;
+}
+.front {
+  display: block;
+  border-radius: 50% !important;
+  height: 6vw;
+  width: 6vw;
+  font-size: 2vw;
+  background: grey;
+  color: white;
+  transform: translateY(-6px);
+}
+
+.pushable:active .front {
+  transform: translateY(-2px);
+}
+
+#slot-details {
+  height: 150px;
+  position: absolute;
+  width: 200px;
+  z-index: 1;
+}
+
+#slot-top {
+  background-color: rgb(88, 14, 14) !important;
+  border-radius: 50px 50px 0 0;
+  border: 2px solid rgb(88, 14, 14);
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.6), 0 1px 2px rgba(0, 0, 0, 0.8),
+    inset 0 0 25px rgba(255, 255, 255, 0.2);
+  height: 12px;
+  left: 205%;
+  margin-left: -98px;
+  position: absolute;
+  top: 1px;
+  width: 660px;
+}
+
+#slot-bottom {
+  background: #ed5d1e;
+  border-radius: 0 0 10px 10px;
+  border: 2px solid #ed5d1e;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.6), 0 1px 2px rgba(0, 0, 0, 0.8),
+    inset 0 0 25px rgba(255, 255, 255, 0.2);
+  height: 12px;
+  left: 50%;
+  margin-left: -98px;
+  position: absolute;
+  bottom: -3px;
+  width: 196px;
 }

@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
 .App{
   width: 70% !important;
-  margin: auto;
+  margin: 5vw auto;
+
 }
 .app-nav-bar{
   width: 70% !important;
@@ -12,5 +14,37 @@
   font-size: 2vw !important;
   padding: 15px;
   margin: auto;
+  color: aliceblue;
+  font-family: 'Sriracha', cursive;
+}
+.ribbon {
+  background: #fffdfd !important;
+  overflow: hidden;
+  white-space: nowrap;
+  position: absolute;
+  left: -50px;
+  top: 40px;
 
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  box-shadow: 0px -1px 11px -2px rgba(70, 66, 66, 0.75);
+  -webkit-box-shadow: 0px -1px 11px -2px rgba(70, 66, 66, 0.75);
+  -moz-box-shadow: 0px -1px 11px -2px rgba(70, 66, 66, 0.75);
+}
+.ribbon a {
+  border: 1px solid rgba(48, 43, 43, 0);
+  color: rgb(0, 0, 0);
+  display: block;
+  font: bold 100% "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 1px 0;
+  padding: 10px 50px;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 0 0 3px rgb(0, 0, 0);
+}
+.ribbon a:hover {
+  color: rgb(255, 0, 0);
 }

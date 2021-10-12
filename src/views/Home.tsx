@@ -5,18 +5,13 @@ const Home = () => {
   return (
     <div className="home">
       <div className="home-container">
-        <Router>
-          <span className="countries-container">
-            <Link className="countries" to="/countries">
-              Countries
-            </Link>
-          </span>
-          <span className="slot-machine-container">
-            <Link className="slot-machine" to="/slot-machine">
-              Slot Machine
-            </Link>
-          </span>
-        </Router>
+        <Link className="countries-link" to="/countries">
+          Countries🗺️{" "}
+        </Link>
+        <span className="home-line-div"></span>
+        <Link className="slot-machine-link" to="/slot-machine">
+          🎰Slot Machine
+        </Link>
       </div>
     </div>
   );
