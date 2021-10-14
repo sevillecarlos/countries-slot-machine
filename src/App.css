@@ -1,21 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
-.App{
+@import url("https://fonts.googleapis.com/css2?family=Sriracha&display=swap");
+.App {
   width: 70% !important;
   margin: 5vw auto;
-
 }
-.app-nav-bar{
+.app-nav-bar {
   width: 70% !important;
   margin: 1% auto;
   border-radius: 15px;
   text-align: justify !important;
 }
-.app-nav-bar span{
+.app-nav-bar span {
   font-size: 2vw !important;
   padding: 15px;
   margin: auto;
   color: aliceblue;
-  font-family: 'Sriracha', cursive;
+  font-family: "Sriracha", cursive;
 }
 .ribbon {
   background: #fffdfd !important;
@@ -52,12 +51,70 @@
 ::-webkit-scrollbar {
   width: 0.5rem;
 }
- 
+
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 6px rgba(148, 130, 130, 0);
 }
- 
+
 ::-webkit-scrollbar-thumb {
   background-color: darkgrey;
   border-radius: 20px;
+}
+
+/* Big tablets to 1200px*/
+/* @media only screen and (max-width: 1200px) {
+} */
+
+/* Small tablets to big tablets: from 768 to 1032*/
+@media only screen and (max-width: 1032px) {
+  .App {
+    width: 100% !important;
+    margin: 10% auto;
+  }
+}
+
+/* Small phones to small tablets: from 481 to 767*/
+@media only screen and (max-width: 767px) {
+  .App {
+    width: 100% !important;
+    margin: 10% auto;
+  }
+  .ribbon {
+    left: -40px;
+    top: 15px;
+    -webkit-transform: rotate(-40deg);
+    -moz-transform: rotate(-40deg);
+    -ms-transform: rotate(-40deg);
+    -o-transform: rotate(-40deg);
+    transform: rotate(-40deg);
+  }
+  .ribbon a {
+    font: bold 100% "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 10px !important;
+    margin: 2px 0;
+    padding: 5px 30px;
+  }
+}
+
+/*Small Phone from 0 to 480px*/
+@media only screen and (max-width: 400px) {
+  .App {
+    width: 100% !important;
+    margin: 10% auto;
+  }
+  .ribbon {
+    left: -40px;
+    top: 15px;
+    -webkit-transform: rotate(-40deg);
+    -moz-transform: rotate(-40deg);
+    -ms-transform: rotate(-40deg);
+    -o-transform: rotate(-40deg);
+    transform: rotate(-40deg);
+  }
+  .ribbon a {
+    font: bold 100% "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 10px !important;
+    margin: 2px 0;
+    padding: 5px 30px;
+  }
 }

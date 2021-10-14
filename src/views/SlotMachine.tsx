@@ -27,7 +27,6 @@ const SlotMachine = () => {
     reel3: SLOT_MACHINE.reel3[2],
   });
   const [coins, setCoins] = useState(20);
-  const [gainCoins, setGainCoins] = useState(0);
   const [rolling, setRolling] = useState(false);
 
   const [spinTimer, setSpinTimer] = useState(REELS_SPINNING_TIMER);
@@ -100,18 +99,12 @@ const SlotMachine = () => {
   }, [spinTimer, spinReelTurn]);
 
   useEffect(() => {
-    setGainCoins(slotMachine.winningCoins);
     setCoins((prevState: any) => prevState + slotMachine.winningCoins);
   }, [slotMachine.winningCoins]);
 
   return (
     <div>
-      {coins === 0 && <span>You dont have more coins</span>}
-      <div id="slot-details">
-        <div id="slot-top"></div>
-      </div>
-
-      <div className="slot-machine">
+      <div className="slot-machine metal linear">
         <h5> 🎰Slot Machine</h5>
         <div className="slot-machine-reels ">
           <span>{convertFruitTextToEmoji(reels.reel1)}</span>
@@ -122,13 +115,13 @@ const SlotMachine = () => {
           <span>{coins.toString().padStart(8, "0")}</span>
         </div>
         <div className="slot-machine-spin-btn-container">
-          <button
-            className="pushable"
+          <Button
+            className="metal linear"
             disabled={coins === 0 || rolling}
             onClick={spin}
           >
-            <span className="front">SPIN</span>
-          </button>
+            Spin
+          </Button>
         </div>
       </div>
       <div id="slot-bottom"></div>

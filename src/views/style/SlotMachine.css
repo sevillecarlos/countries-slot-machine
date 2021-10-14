@@ -1,13 +1,11 @@
 .slot-machine {
   padding: 50px;
   width: 50%;
-  background-color: rgb(129, 28, 28) !important;
   text-align: center;
   margin: auto;
-  border-radius: 1p0px !important;
-  background-color: rgba(26, 9, 9, 0);
-  box-shadow: inset 0px 0px 15px rgba(0, 0, 0, 0.9);
-  
+  border-radius: 20px !important;
+  background-color: rgb(255, 255, 234);
+  box-shadow: inset 0px 0px 16px rgba(0, 0, 0, 0.9);
 }
 .slot-machine * {
   padding: 10px;
@@ -20,97 +18,83 @@
 }
 .slot-machine-reels span {
   font-size: 6vw;
-  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
   padding: 10px;
-  /* box-shadow: inset 0px 0px 10px rgba(0,0,0,0.9); */
+  box-shadow: inset hsla(0, 0%, 15%, 1) 0 0px 0px 4px,
+    inset hsla(0, 0%, 15%, 0.8) 0 -1px 5px 4px,
+    inset hsla(0, 0%, 0%, 0.25) 0 -1px 0px 7px,
+    inset hsla(0, 0%, 100%, 0.7) 0 2px 1px 7px,
+    hsla(0, 0%, 0%, 0.15) 0 -5px 6px 4px, hsla(0, 0%, 100%, 0.5) 0 5px 6px 4px;
   border: 2px solid black;
-  background-color: beige;
+  background-color: rgb(238, 238, 188);
+  text-shadow: 7px 7px #000000;
   border-radius: 10px;
   margin-left: 5px;
 }
 
 .slot-machine-coins-container {
   text-align: right;
-  border-radius: 15px;
+  border-radius: 10px;
   width: 70%;
   margin: auto;
-  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-  background-color: rgba(30, 150, 14, 0.363);
+  box-shadow: inset hsla(0, 0%, 15%, 1) 0 0px 0px 4px,
+    inset hsla(0, 0%, 15%, 0.8) 0 -1px 5px 4px,
+    inset hsla(0, 0%, 0%, 0.25) 0 -1px 0px 7px,
+    inset hsla(0, 0%, 100%, 0.7) 0 2px 1px 7px,
+    hsla(0, 0%, 0%, 0.15) 0 -5px 6px 4px, hsla(0, 0%, 100%, 0.5) 0 5px 6px 4px;
+  background-color: rgb(224, 224, 199);
 }
 .slot-machine-coins-container span {
   font-size: 3vw !important;
   font-weight: bold;
   font-family: "DSEG14-Classic";
-  color: rgb(12, 12, 12);
-  text-shadow: 2px 2px #3a3838;
+  color: rgb(36, 33, 33);
+  text-shadow: 2px 2px #aa9494;
 }
 
-.pushable {
-  background: black;
+.slot-machine button {
   border-radius: 50% !important;
-  border: none;
-  width: 6vw;
-  height: 6vw;
-  padding: 0;
-  cursor: pointer;
-  outline-offset: 4px;
-}
-.front {
-  display: block;
-  border-radius: 50% !important;
-  height: 6vw;
-  width: 6vw;
-  font-size: 2vw;
-  background: grey;
-  color: white;
-  transform: translateY(-6px);
-}
-
-.pushable:active .front {
-  transform: translateY(-2px);
-}
-
-#slot-details {
   height: 150px;
-  position: absolute;
-  width: 200px;
-  z-index: 1;
+  width: 150px;
+  font-family: "Ultra", serif;
+  color: rgb(255, 1, 1);
+  background-color: red !important;
+  font-size: 2vw;
+  text-shadow: 3px 3px #000000;
+  box-shadow: inset hsla(0, 0%, 15%, 1) 0 0px 0px 4px,
+    inset hsla(0, 0%, 15%, 0.8) 0 -1px 5px 4px,
+    inset hsla(0, 0%, 0%, 0.25) 0 -1px 0px 7px,
+    inset hsla(0, 0%, 100%, 0.7) 0 2px 1px 7px,
+    hsla(0, 0%, 0%, 0.15) 0 -5px 6px 4px, hsla(0, 0%, 100%, 0.5) 0 5px 6px 4px;
 }
 
-#slot-top {
-  background-color: rgb(88, 14, 14) !important;
-  border-radius: 50px 50px 0 0;
-  border: 2px solid rgb(88, 14, 14);
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.6), 0 1px 2px rgba(0, 0, 0, 0.8),
-    inset 0 0 25px rgba(255, 255, 255, 0.2);
-  height: 12px;
-  left: 205%;
-  margin-left: -98px;
-  position: absolute;
-  top: 1px;
-  width: 660px;
+.metal {
+  position: relative;
+  outline: none;
+
+  text-align: center;
+  color: hsla(0, 0%, 20%, 1);
+  text-shadow: hsla(0, 0%, 40%, 0.5) 0 -1px 0, hsla(0, 0%, 100%, 0.6) 0 2px 1px;
+
+  box-shadow: inset hsla(0, 0%, 15%, 1) 0 0px 0px 4px,
+    inset hsla(0, 0%, 15%, 0.8) 0 -1px 5px 4px,
+    inset hsla(0, 0%, 0%, 0.25) 0 -1px 0px 7px,
+    inset hsla(0, 0%, 100%, 0.7) 0 2px 1px 7px,
+    hsla(0, 0%, 0%, 0.15) 0 -5px 6px 4px, hsla(0, 0%, 100%, 0.5) 0 5px 6px 4px;
+  transition: color 0.2s;
 }
 
-#slot-bottom {
-  background: #ed5d1e;
-  border-radius: 0 0 10px 10px;
-  border: 2px solid #ed5d1e;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.6), 0 1px 2px rgba(0, 0, 0, 0.8),
-    inset 0 0 25px rgba(255, 255, 255, 0.2);
-  height: 12px;
-  left: 50%;
-  margin-left: -98px;
-  position: absolute;
-  bottom: -3px;
-  width: 196px;
+.metal.linear {
+  background-image: -webkit-repeating-linear-gradient(
+      left,
+      hsla(0, 0%, 100%, 0) 0%,
+      hsla(0, 0%, 100%, 0) 6%,
+      hsla(0, 0%, 100%, 0.1) 7.5%
+    ),
+    linear-gradient(
+      100deg,
+      hsl(0, 0%, 78%) 0%,
+      hsl(0, 0%, 90%) 47%,
+      hsl(0, 0%, 78%) 53%,
+      hsl(0, 0%, 70%) 100%
+    );
 }

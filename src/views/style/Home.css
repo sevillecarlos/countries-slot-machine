@@ -21,7 +21,7 @@
   color: rgb(0, 0, 0);
   text-shadow: 2px 2px #8f8f8f;
 }
-.slot-machine-link{
+.slot-machine-link {
   font-family: "Ultra", serif;
   color: rgb(255, 1, 1);
   text-shadow: 3px 3px #000000;
@@ -33,6 +33,40 @@
 .home-container {
   margin: 10% auto;
 }
-.home-line-div {
-  border-left: 2px solid rgba(0, 0, 0, 0.952);
+
+/* Big tablets to 1200px*/
+/* @media only screen and (max-width: 1200px) {
+} */
+
+/* Small tablets to big tablets: from 768 to 1032*/
+@media only screen and (max-width: 1032px) {
+  .home {
+    margin: 30vw auto;
+  }
+
+  .home a {
+    font-size: 4vw !important;
+  }
+}
+
+/* Small phones to small tablets: from 481 to 767*/
+@media only screen and (max-width: 767px) {
+  .home {
+    margin: 30vw auto;
+  }
+
+  .home a {
+    font-size: 8.1vw !important;
+  }
+}
+
+/*Small Phone from 0 to 480px*/
+@media only screen and (max-width: 400px) {
+  .home {
+    margin: 30vw auto;
+  }
+
+  .home a {
+    font-size: 8.1vw !important;
+  }
 }
