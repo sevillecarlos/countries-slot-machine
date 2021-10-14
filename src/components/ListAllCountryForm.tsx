@@ -3,6 +3,11 @@ import { Table, Form, FloatingLabel } from "react-bootstrap";
 import { RootStateOrAny } from "react-redux";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { getAllCountries } from "../app/slices/countries";
+import "./style/CountriesForm.css";
+
+import { BiWorld } from "react-icons/bi";
+import { GiModernCity } from "react-icons/gi";
+import { FaMapMarkedAlt } from "react-icons/fa";
 
 const ListAllCountryForm = () => {
   const dispatch = useAppDispatch();
@@ -37,6 +42,7 @@ const ListAllCountryForm = () => {
     <div>
       <FloatingLabel controlId="floatingSelect" label="Filter country by name">
         <Form.Select
+          className="select-countries"
           aria-label="Floating label select"
           onChange={onChangeFilterByName}
         >
@@ -51,12 +57,18 @@ const ListAllCountryForm = () => {
           )}
         </Form.Select>
       </FloatingLabel>
-      <Table bordered hover>
+      <Table className="countries-table" hover>
         <thead>
           <tr>
-            <th>Country</th>
-            <th>Capital</th>
-            <th>Region</th>
+            <th>
+              Country <BiWorld />
+            </th>
+            <th>
+              Capital <GiModernCity />
+            </th>
+            <th>
+              Region <FaMapMarkedAlt />
+            </th>
           </tr>
         </thead>
         <tbody>

@@ -1,8 +1,10 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
-import countries from "./slices/countries";
+import countriesSlice from "./slices/countries";
+import slotMachineSlice from "./slices/slot-machine";
 export const store = configureStore({
   reducer: {
-    countries: countries.reducer,
+    countries: countriesSlice.reducer,
+    slotMachine: slotMachineSlice.reducer,
   },
 });
 

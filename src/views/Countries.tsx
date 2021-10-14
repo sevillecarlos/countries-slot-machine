@@ -5,21 +5,21 @@ import ListCountryForm from "../components/ListCountryForm";
 import ListAllCountryForm from "../components/ListAllCountryForm";
 import { useHistory } from "react-router";
 
+import "./style/Countries.css";
+
 const Countries = () => {
   const history = useHistory();
 
   return (
-    <div className='countries'>
+    <div className="countries">
       <Container>
-        <Button onClick={() => history.goBack()}>Go Back</Button>
+        {/* <Button onClick={() => history.goBack()}>Go Back</Button> */}
         <Row>
           <Col>
             {" "}
             <UniqueCountryForm />
-            <br />
             <ListCountryForm />
           </Col>
-
           <Col>
             <ListAllCountryForm />
           </Col>

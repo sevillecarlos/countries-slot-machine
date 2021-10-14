@@ -16,7 +16,7 @@ const initialState = {
 };
 
 export const getUniqueCountry = createAsyncThunk(
-  "auth/getUniqueCountry",
+  "countries/getUniqueCountry",
   async (countryQuery: any) => {
     try {
       const res: any = await axios.get(
@@ -30,7 +30,7 @@ export const getUniqueCountry = createAsyncThunk(
 );
 
 export const getListCountries = createAsyncThunk(
-  "auth/getListCountries",
+  "countries/getListCountries",
   async (countryQuery: any) => {
     try {
       const res: any = await axios.post(
@@ -47,7 +47,7 @@ export const getListCountries = createAsyncThunk(
 );
 
 export const getAllCountries = createAsyncThunk(
-  "auth/getAllCountries",
+  "countries/getAllCountries",
   async () => {
     try {
       const res: any = await axios.get(
@@ -61,7 +61,7 @@ export const getAllCountries = createAsyncThunk(
 );
 
 const countriesSlice = createSlice({
-  name: "auth",
+  name: "countries",
   initialState,
   reducers: {
     clearListCountries(state) {

@@ -1,0 +1,81 @@
+.country-form {
+  width: 75% !important;
+  height: 300px;
+  padding: 1.4%;
+}
+
+.country-form button {
+  border-radius: 5px !important;
+  background-color: rgb(0, 0, 0) !important;
+  border: none !important;
+  font-size: 1vw;
+  color: azure !important;
+}
+
+.country-form button:hover {
+  background-color: rgb(48, 44, 44) !important;
+}
+.country-form input {
+  font-size: 1vw;
+  border-radius: 10px !important;
+  background-color: rgba(219, 219, 219, 0.37);
+
+  color: rgb(0, 0, 0) !important;
+  box-shadow: 2px 5px 16px 0px rgba(148, 130, 130, 0.75);
+  -webkit-box-shadow: 2px 5px 16px 0px rgba(148, 130, 130, 0.75);
+  -moz-box-shadow: 2px 5px 16px 0px rgba(148, 130, 130, 0.75);
+}
+
+.country-form ul {
+  text-align: center !important;
+  letter-spacing: 1px;
+  background-color: rgba(219, 219, 219, 0.37);
+  font-size: 1vw;
+  list-style: none !important;
+  border-radius: 10px !important;
+  margin-top: 10px;
+  box-shadow: 2px 5px 16px 0px rgba(148, 130, 130, 0.75);
+  -webkit-box-shadow: 2px 5px 16px 0px rgba(148, 130, 130, 0.75);
+  -moz-box-shadow: 2px 5px 16px 0px rgba(148, 130, 130, 0.75);
+  padding: 1%;
+}
+
+.country-form p {
+  font-size: 1vw;
+  text-align: center;
+  padding: 5%;
+  background-color: rgba(219, 219, 219, 0.37);
+
+  font-weight: bold;
+  margin-top: 10px;
+  box-shadow: 2px 5px 16px 0px rgba(148, 130, 130, 0.75);
+  -webkit-box-shadow: 2px 5px 16px 0px rgba(148, 130, 130, 0.75);
+  -moz-box-shadow: 2px 5px 16px 0px rgba(148, 130, 130, 0.75);
+}
+
+.countries-list-container {
+  margin-top: 10px;
+  box-shadow: 2px 5px 16px 0px rgba(148, 130, 130, 0.75);
+  -webkit-box-shadow: 2px 5px 16px 0px rgba(148, 130, 130, 0.75);
+  -moz-box-shadow: 2px 5px 16px 0px rgba(148, 130, 130, 0.75);
+  border-radius: 10px !important;
+  padding: 1%;
+  height: 400px;
+  overflow: hidden;
+  padding: 2%;
+  overflow-y: scroll;
+}
+
+.countries-table {
+  box-shadow: 2px 5px 16px 0px rgba(148, 130, 130, 0.75);
+  -webkit-box-shadow: 2px 5px 16px 0px rgba(148, 130, 130, 0.75);
+  -moz-box-shadow: 2px 5px 16px 0px rgba(148, 130, 130, 0.75);
+  border-radius: 20px !important;
+}
+.countries-table th {
+  border-radius: 20px !important;
+}
+.select-countries {
+  border-radius: 20px !important;
+  border: 1px solid rgba(17, 16, 16, 0.397) !important;
+}

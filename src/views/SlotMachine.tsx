@@ -1,17 +1,25 @@
 import React, { useState, useEffect, useCallback } from "react";
+import { getSlotMachineResult } from "../app/slices/slot-machine";
 import { Button } from "react-bootstrap";
-import "./style/SlotMachine.css";
-import {
-  getRandomNumber,
-  slotMachineRewardRules,
-  convertFruitTextToEmoji,
-} from "../helpers";
+
+import { RootStateOrAny } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../app/hooks";
+
+import { getRandomNumber, convertFruitTextToEmoji } from "../helpers";
 import { SLOT_MACHINE, REELS_SPINNING_TIMER } from "../config";
+
+import "./style/SlotMachine.css";
 
 let spinReelTimer: any = null;
 const slotMachineMap = new Map(Object.entries(SLOT_MACHINE));
 
 const SlotMachine = () => {
+  const dispatch = useAppDispatch();
+
+  const slotMachine = useAppSelector(
+    (state: RootStateOrAny) => state.slotMachine
+  );
+
   //State
   const [reels, setReels] = useState({
     reel1: SLOT_MACHINE.reel1[0],
@@ -70,16 +78,13 @@ const SlotMachine = () => {
       setSpinReelTurn({ current: "reel3", next: "finish" });
     }
     if (letReelSpin.finish) {
-      const rewardsCoins = slotMachineRewardRules(reels);
-      setGainCoins(rewardsCoins);
+      dispatch(getSlotMachineResult(reels));
       setRolling(false);
-      setCoins((prevState: any) => prevState + rewardsCoins);
       setLetReelSpin((prevState: any) => {
         return { ...prevState, finish: false };
       });
     }
-  }, [letReelSpin, reels, spinningReel]);
-
+  }, [letReelSpin, reels, spinningReel, dispatch]);
   useEffect(() => {
     if (spinTimer === 0) {
       clearTimeout(spinReelTimer);
@@ -93,6 +98,11 @@ const SlotMachine = () => {
       setSpinTimer(REELS_SPINNING_TIMER);
     }
   }, [spinTimer, spinReelTurn]);
+
+  useEffect(() => {
+    setGainCoins(slotMachine.winningCoins);
+    setCoins((prevState: any) => prevState + slotMachine.winningCoins);
+  }, [slotMachine.winningCoins]);
 
   return (
     <div>
