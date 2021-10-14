@@ -57,7 +57,7 @@ const ListAllCountryForm = () => {
           )}
         </Form.Select>
       </FloatingLabel>
-      <Table className="countries-table" hover>
+      <Table className="countries-table" borderless hover>
         <thead>
           <tr>
             <th>
@@ -92,6 +92,10 @@ const ListAllCountryForm = () => {
                 </tr>
               )
             )}
+
+          {country?.statusGetAllCountries === "loading" && (
+            <p>...Loading Countries</p>
+          )}
         </tbody>
       </Table>
     </div>

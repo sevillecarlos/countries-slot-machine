@@ -45,7 +45,7 @@
   text-align: center;
   padding: 5%;
   background-color: rgba(219, 219, 219, 0.37);
-
+  border-radius: 20px;
   font-weight: bold;
   margin-top: 10px;
   box-shadow: 2px 5px 16px 0px rgba(148, 130, 130, 0.75);
@@ -55,10 +55,7 @@
 
 .countries-list-container {
   margin-top: 10px;
-  box-shadow: 2px 5px 16px 0px rgba(148, 130, 130, 0.75);
-  -webkit-box-shadow: 2px 5px 16px 0px rgba(148, 130, 130, 0.75);
-  -moz-box-shadow: 2px 5px 16px 0px rgba(148, 130, 130, 0.75);
-  border-radius: 10px !important;
+  border-radius: 20px !important;
   padding: 1%;
   height: 400px;
   overflow: hidden;
@@ -71,11 +68,19 @@
   -webkit-box-shadow: 2px 5px 16px 0px rgba(148, 130, 130, 0.75);
   -moz-box-shadow: 2px 5px 16px 0px rgba(148, 130, 130, 0.75);
   border-radius: 20px !important;
+  background-color: rgba(219, 219, 219, 0.37);
+  width: 100% !important;
+  padding: 1% !important;
 }
 .countries-table th {
   border-radius: 20px !important;
+  border-color: transparent !important;
 }
 .select-countries {
   border-radius: 20px !important;
-  border: 1px solid rgba(17, 16, 16, 0.397) !important;
+  font-size: 1vw !important;
+  font-weight: bold !important;
+  box-shadow: 2px 5px 16px 0px rgba(148, 130, 130, 0.75);
+  -webkit-box-shadow: 2px 5px 16px 0px rgba(148, 130, 130, 0.75);
+  -moz-box-shadow: 2px 5px 16px 0px rgba(148, 130, 130, 0.75);
 }

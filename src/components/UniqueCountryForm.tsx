@@ -56,6 +56,8 @@ const UniqueCountryForm = () => {
           </ul>
         )}
 
+        {country?.statusGetCountry === "loading" && <p>...Loading Country</p>}
+
         {country.statusGetCountry === "reject" && (
           <p>
             {country.errorGetCountry} <MdError />

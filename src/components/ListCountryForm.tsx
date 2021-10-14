@@ -66,6 +66,9 @@ const ListCountryForm = () => {
             ))}
           </div>
         )}
+      {country?.statusGetListCountries === "loading" && (
+        <p>...Loading Countries</p>
+      )}
 
       {country.statusGetListCountries === "reject" && (
         <p>
