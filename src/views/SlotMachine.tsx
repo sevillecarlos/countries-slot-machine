@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import { getSlotMachineResult } from "../app/slices/slot-machine";
 import { Button } from "react-bootstrap";
 
@@ -12,9 +12,11 @@ import "./style/SlotMachine.css";
 
 let spinReelTimer: any = null;
 const slotMachineMap = new Map(Object.entries(SLOT_MACHINE));
+let spinningDisplayInterval: any;
 
 const SlotMachine = () => {
   const dispatch = useAppDispatch();
+  const showSpin: any = useRef();
 
   const slotMachine = useAppSelector(
     (state: RootStateOrAny) => state.slotMachine
@@ -40,6 +42,8 @@ const SlotMachine = () => {
     current: "",
     next: "",
   });
+
+  const [displaySpin, setDisplaySpin] = useState(false);
   //Functions
 
   const spinningReel = useCallback((reel: string) => {
@@ -57,9 +61,16 @@ const SlotMachine = () => {
   const spin = () => {
     setCoins((prevState: any) => prevState - 1);
     setRolling(true);
+    setDisplaySpin(true);
+
     setLetReelSpin((prevState: any) => {
       return { ...prevState, reel1: true };
     });
+  };
+
+  const spinDisplayAnimation = () => {
+    showSpin.current = !showSpin.current;
+    setDisplaySpin(showSpin.current);
   };
 
   //Sides Effects
@@ -102,17 +113,24 @@ const SlotMachine = () => {
     setCoins((prevState: any) => prevState + slotMachine.winningCoins);
   }, [slotMachine.winningCoins]);
 
+  useEffect(() => {
+    spinningDisplayInterval = setInterval(spinDisplayAnimation, 800);
+    return () => {
+      clearInterval(spinningDisplayInterval);
+    };
+  }, []);
+
   return (
     <div>
       <div className="slot-machine metal linear">
-        <h5> 🎰Slot Machine</h5>
+        <h5>🎰Slot Machine</h5>
         <div className="slot-machine-reels ">
           <span>{convertFruitTextToEmoji(reels.reel1)}</span>
           <span>{convertFruitTextToEmoji(reels.reel2)}</span>
           <span>{convertFruitTextToEmoji(reels.reel3)}</span>
         </div>
         <div className="slot-machine-coins-container">
-          <span>{coins.toString().padStart(8, "0")}</span>
+          <span>{coins.toString().padStart(7, "0")}</span>
         </div>
         <div className="slot-machine-spin-btn-container">
           <Button
@@ -120,7 +138,7 @@ const SlotMachine = () => {
             disabled={coins === 0 || rolling}
             onClick={spin}
           >
-            Spin
+            {displaySpin && !rolling ? "" : "Spin"}
           </Button>
         </div>
       </div>

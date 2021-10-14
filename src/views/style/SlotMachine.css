@@ -1,21 +1,45 @@
 .slot-machine {
   padding: 50px;
-  width: 50%;
+  width: 60%;
   text-align: center;
   margin: auto;
   border-radius: 20px !important;
   background-color: rgb(255, 255, 234);
-  box-shadow: inset 0px 0px 16px rgba(0, 0, 0, 0.9);
+  box-shadow: inset hsla(0, 0%, 15%, 1) 0 0px 0px 4px,
+    inset hsla(0, 0%, 15%, 0.8) 0 -1px 5px 4px,
+    inset hsla(0, 0%, 0%, 0.25) 0 -1px 0px 7px,
+    inset hsla(0, 0%, 100%, 0.7) 0 2px 1px 7px,
+    hsla(0, 0%, 0%, 0.15) 0 -5px 6px 4px, hsla(0, 0%, 100%, 0.5) 0 5px 6px 4px;
+  background: conic-gradient(
+    #edc800,
+    #e3b600,
+    #f3cf00,
+    #ffe800,
+    #edc800,
+    #e3b600,
+    #f3cf00,
+    #ffe800,
+    #edc800,
+    #e3b600,
+    #f3cf00,
+    #ffe800,
+    #edc800,
+    #e3b600,
+    #f3cf00,
+    #ffe800
+  );
 }
 .slot-machine * {
   padding: 10px;
 }
 .slot-machine h5 {
   font-family: "Ultra", serif;
-  color: rgb(255, 0, 0);
-  text-shadow: 3px 3px #000000;
-  font-size: 3vw;
+  color: rgb(224, 0, 0);
+
+  text-shadow: 5px 5px #000000;
+  font-size: 3.4vw;
 }
+
 .slot-machine-reels span {
   font-size: 6vw;
   padding: 10px;
@@ -28,13 +52,13 @@
   background-color: rgb(238, 238, 188);
   text-shadow: 7px 7px #000000;
   border-radius: 10px;
-  margin-left: 5px;
+  margin-left: 1px;
 }
 
 .slot-machine-coins-container {
-  text-align: right;
+  text-align: center !important;
   border-radius: 10px;
-  width: 70%;
+  width: 20vw;
   margin: auto;
   box-shadow: inset hsla(0, 0%, 15%, 1) 0 0px 0px 4px,
     inset hsla(0, 0%, 15%, 0.8) 0 -1px 5px 4px,
@@ -53,13 +77,15 @@
 
 .slot-machine button {
   border-radius: 50% !important;
-  height: 150px;
-  width: 150px;
+  height: 8vw;
+  width: 8vw;
+
+  background-color: rgb(180, 177, 177) !important;
   font-family: "Ultra", serif;
-  color: rgb(255, 1, 1);
-  background-color: red !important;
-  font-size: 2vw;
-  text-shadow: 3px 3px #000000;
+  border: none !important;
+  color: rgb(248, 3, 3);
+  font-size: 2.2vw;
+  text-shadow: 4px 4px 4px #0f0f0f;
   box-shadow: inset hsla(0, 0%, 15%, 1) 0 0px 0px 4px,
     inset hsla(0, 0%, 15%, 0.8) 0 -1px 5px 4px,
     inset hsla(0, 0%, 0%, 0.25) 0 -1px 0px 7px,
@@ -67,34 +93,106 @@
     hsla(0, 0%, 0%, 0.15) 0 -5px 6px 4px, hsla(0, 0%, 100%, 0.5) 0 5px 6px 4px;
 }
 
-.metal {
-  position: relative;
-  outline: none;
-
-  text-align: center;
-  color: hsla(0, 0%, 20%, 1);
-  text-shadow: hsla(0, 0%, 40%, 0.5) 0 -1px 0, hsla(0, 0%, 100%, 0.6) 0 2px 1px;
-
-  box-shadow: inset hsla(0, 0%, 15%, 1) 0 0px 0px 4px,
-    inset hsla(0, 0%, 15%, 0.8) 0 -1px 5px 4px,
-    inset hsla(0, 0%, 0%, 0.25) 0 -1px 0px 7px,
-    inset hsla(0, 0%, 100%, 0.7) 0 2px 1px 7px,
-    hsla(0, 0%, 0%, 0.15) 0 -5px 6px 4px, hsla(0, 0%, 100%, 0.5) 0 5px 6px 4px;
-  transition: color 0.2s;
+.slot-machine button:hover {
+  color: rgb(248, 3, 3);
 }
 
-.metal.linear {
-  background-image: -webkit-repeating-linear-gradient(
-      left,
-      hsla(0, 0%, 100%, 0) 0%,
-      hsla(0, 0%, 100%, 0) 6%,
-      hsla(0, 0%, 100%, 0.1) 7.5%
-    ),
-    linear-gradient(
-      100deg,
-      hsl(0, 0%, 78%) 0%,
-      hsl(0, 0%, 90%) 47%,
-      hsl(0, 0%, 78%) 53%,
-      hsl(0, 0%, 70%) 100%
-    );
+/* Big tablets to 1200px*/
+/* @media only screen and (max-width: 1200px) {
+} */
+
+/* Small tablets to big tablets: from 768 to 1032*/
+@media only screen and (max-width: 1032px) {
+  .slot-machine {
+    width: 70%;
+  }
+  .slot-machine h5 {
+    font-size: 5vw;
+    text-shadow: 3px 3px #000000;
+  }
+
+  .slot-machine-reels span {
+    font-size: 10vw;
+    text-shadow: 4px 4px #000000;
+    border: 1px solid black;
+    margin-left: 1px;
+  }
+
+  .slot-machine-coins-container span {
+    font-size: 5vw !important;
+  }
+
+  .slot-machine button {
+    height: 12vw;
+    width: 12vw;
+    font-size: 3vw;
+  }
+}
+
+/* Small phones to small tablets: from 481 to 767*/
+@media only screen and (max-width: 767px) {
+  .slot-machine {
+    width: 95%;
+    padding: 20px;
+    margin-top: 20% !important;
+  }
+  .slot-machine h5 {
+    font-size: 11vw;
+    text-shadow: 3px 3px #000000;
+  }
+
+  .slot-machine-reels span {
+    font-size: 14.2vw;
+    padding: 8px !important;
+    text-shadow: 4px 4px #000000;
+    border: 1px solid black;
+    margin-left: 1px;
+  }
+
+  .slot-machine-coins-container span {
+    font-size: 7vw !important;
+  }
+  .slot-machine-coins-container {
+    width: 75%;
+  }
+
+  .slot-machine button {
+    height: 30vw;
+    width: 30vw;
+    font-size: 7vw;
+  }
+}
+
+/*Small Phone from 0 to 480px*/
+@media only screen and (max-width: 400px) {
+  .slot-machine {
+    width: 95%;
+    padding: 20px;
+    margin-top: 20% !important;
+  }
+  .slot-machine h5 {
+    font-size: 11vw;
+    text-shadow: 3px 3px #000000;
+  }
+
+  .slot-machine-reels span {
+    font-size: 14.2vw;
+    padding: 8px !important;
+    text-shadow: 4px 4px #000000;
+    border: 1px solid black;
+    margin-left: 1px;
+  }
+
+  .slot-machine-coins-container span {
+    font-size: 7vw !important;
+  }
+  .slot-machine-coins-container {
+    width: 75%;
+  }
+
+  .slot-machine button {
+    height: 30vw;
+    width: 30vw;
+    font-size: 7vw;
+  }
 }
