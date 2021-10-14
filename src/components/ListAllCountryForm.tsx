@@ -60,13 +60,13 @@ const ListAllCountryForm = () => {
           </tr>
         </thead>
         <tbody>
-          {country?.status === "success" &&
+          {country?.statusGetAllCountries === "success" &&
             countries?.map(
               (
                 country: {
                   flag: string;
                   countryName: string;
-                  capital: string;
+                  capital: Array<string>;
                   region: string;
                 },
                 i: number
@@ -75,7 +75,7 @@ const ListAllCountryForm = () => {
                   <td>
                     {country.flag} {country.countryName}
                   </td>
-                  <td>{country.capital}</td>
+                  <td>{country.capital?.join(", ")}</td>
                   <td>{country.region}</td>
                 </tr>
               )

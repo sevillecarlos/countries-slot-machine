@@ -12,11 +12,13 @@ const UniqueCountryForm = () => {
 
   const [countryQuery, setCountryQuery] = useState("");
 
-  const submitUniqueCountryForm = (e: any) => {
-    e.preventDefault();
-    dispatch(getUniqueCountry(countryQuery.toLowerCase()));
-  };
-
+  const submitUniqueCountryForm = useCallback(
+    (e: any) => {
+      e.preventDefault();
+      dispatch(getUniqueCountry(countryQuery));
+    },
+    [dispatch, countryQuery]
+  );
 
   return (
     <div>
@@ -32,9 +34,7 @@ const UniqueCountryForm = () => {
         <Button type="submit">Submit</Button>
       </Form>
       <div>
-        {country?.status === "success" &&
-        country?.uniqueCountry !== null &&
-        !country?.uniqueCountry?.notFoundMsg ? (
+        {country.statusGetCountry === "success" && (
           <ul>
             <li>
               Country: {country?.uniqueCountry?.countryName}{" "}
@@ -43,8 +43,10 @@ const UniqueCountryForm = () => {
             <li>Capital: {country?.uniqueCountry?.capital?.join(", ")}</li>
             <li>Region: {country?.uniqueCountry?.region}</li>
           </ul>
-        ) : (
-          <p>{country?.uniqueCountry?.notFoundMsg}</p>
+        )}
+
+        {country.statusGetCountry === "reject" && (
+          <p>{country.errorGetCountry}</p>
         )}
       </div>
     </div>

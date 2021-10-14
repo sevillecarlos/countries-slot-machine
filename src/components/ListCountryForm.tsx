@@ -9,18 +9,18 @@ const ListCountryForm = () => {
   const country = useAppSelector((state: RootStateOrAny) => state.countries);
 
   const submitListCountryForm = useCallback(
-    (e: any) => {
+    async (e: any) => {
       e.preventDefault();
       const { value } = e.target;
+
       if (value !== "") {
-        dispatch(getListCountries(value));
+        await dispatch(getListCountries(value));
       } else {
         dispatch(countriesAction.clearListCountries());
       }
     },
     [dispatch]
   );
-
   return (
     <div>
       <Form className="unique-contry-form" autoComplete="off">
@@ -33,16 +33,20 @@ const ListCountryForm = () => {
           />
         </Form.Group>{" "}
       </Form>
-      {country?.status === "success" && !country?.listCountries?.notFoundMsg ? (
-        country?.listCountries?.map((country: any, i: number) => (
+      {country.statusGetListCountries === "success" &&
+        country.listCountries !== null &&
+        country.listCountries?.map((country: any, i: number) => (
           <ul key={i}>
             <li>
               {country.countryName} {country.flag}
             </li>
+            <li>{country.capital?.join(", ")}</li>
+            <li>{country.region}</li>
           </ul>
-        ))
-      ) : (
-        <p>{country?.listCountries?.notFoundMsg}</p>
+        ))}
+
+      {country.statusGetListCountries === "reject" && (
+        <p>{country.errorGetListCountries}</p>
       )}
     </div>
   );

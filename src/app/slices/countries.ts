@@ -5,19 +5,26 @@ const initialState = {
   uniqueCountry: null,
   listCountries: Array<any>(),
   listAllCountries: Array<any>(),
-  status: "idle",
+
+  //promise status
+  statusGetAllCountries: "idle",
+  statusGetCountry: "idle",
+  statusGetListCountries: "idle",
+
+  errorGetCountry: "",
+  errorGetListCountries: "",
 };
 
 export const getUniqueCountry = createAsyncThunk(
   "auth/getUniqueCountry",
   async (countryQuery: any) => {
     try {
-      const res: any = await axios.post(`http://localhost:8080/country`, {
-        countryQuery,
-      });
+      const res: any = await axios.get(
+        `${process.env.REACT_APP_SERVER_URL}/countries/${countryQuery}`
+      );
       return res.data;
     } catch (error) {
-      throw error;
+      throw error.response.data;
     }
   }
 );
@@ -26,12 +33,15 @@ export const getListCountries = createAsyncThunk(
   "auth/getListCountries",
   async (countryQuery: any) => {
     try {
-      const res: any = await axios.post(`http://localhost:8080/countries`, {
-        countryQuery,
-      });
+      const res: any = await axios.post(
+        `${process.env.REACT_APP_SERVER_URL}/countries`,
+        {
+          countryQuery,
+        }
+      );
       return res.data;
     } catch (error) {
-      throw error;
+      throw error.response.data;
     }
   }
 );
@@ -40,7 +50,9 @@ export const getAllCountries = createAsyncThunk(
   "auth/getAllCountries",
   async () => {
     try {
-      const res: any = await axios.get(`http://localhost:8080/countries`);
+      const res: any = await axios.get(
+        `${process.env.REACT_APP_SERVER_URL}/countries`
+      );
       return res.data;
     } catch (error) {
       throw error;
@@ -53,42 +65,50 @@ const countriesSlice = createSlice({
   initialState,
   reducers: {
     clearListCountries(state) {
-      state.listCountries = [];
+      state.listCountries = Array<any>();
     },
   },
   extraReducers: (builder) => {
     /**********************************************************************/
     builder.addCase(getUniqueCountry.fulfilled, (state, action) => {
-      state.status = "success";
+      state.statusGetCountry = "success";
       state.uniqueCountry = action.payload;
     });
     builder.addCase(getUniqueCountry.pending, (state) => {
-      state.status = "loading";
+      state.statusGetCountry = "loading";
     });
-    builder.addCase(getUniqueCountry.rejected, (state) => {
-      state.status = "reject";
-    });
+    builder.addCase(
+      getUniqueCountry.rejected,
+      (state, action: { error: any }) => {
+        state.statusGetCountry = "reject";
+        state.errorGetCountry = action.error.message;
+      }
+    );
     /**********************************************************************/
     builder.addCase(getListCountries.fulfilled, (state, action) => {
-      state.status = "success";
+      state.statusGetListCountries = "success";
       state.listCountries = action.payload;
     });
     builder.addCase(getListCountries.pending, (state) => {
-      state.status = "loading";
+      state.statusGetListCountries = "loading";
     });
-    builder.addCase(getListCountries.rejected, (state) => {
-      state.status = "reject";
-    });
+    builder.addCase(
+      getListCountries.rejected,
+      (state, action: { error: any }) => {
+        state.statusGetListCountries = "reject";
+        state.errorGetListCountries = action.error.message;
+      }
+    );
     /**********************************************************************/
     builder.addCase(getAllCountries.fulfilled, (state, action) => {
-      state.status = "success";
+      state.statusGetAllCountries = "success";
       state.listAllCountries = action.payload;
     });
     builder.addCase(getAllCountries.pending, (state) => {
-      state.status = "loading";
+      state.statusGetAllCountries = "loading";
     });
     builder.addCase(getAllCountries.rejected, (state) => {
-      state.status = "reject";
+      state.statusGetAllCountries = "reject";
     });
   },
 });
