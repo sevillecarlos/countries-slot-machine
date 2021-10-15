@@ -31,7 +31,7 @@ npm start
 * *REACT_APP_SERVER_URL*
 
 ## Commerc-e Server
-Navigate to [Countries and Slot Machine ](https://github.com/sevillecarlos/countries-slot-machine-server) to found the server for the app.
+Navigate to [Countries and Slot Machine Server](https://github.com/sevillecarlos/countries-slot-machine-server) to found the server for the app.
 
 
 # Author
