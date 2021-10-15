@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <div className="ribbon">
         <a
-          href="https://github.com/sevillecarlos/commerc-e"
+          href="https://github.com/sevillecarlos/countries-slot-machine"
           rel="noreferrer"
           target="_blank"
         >
