@@ -7,7 +7,6 @@ import { useAppDispatch, useAppSelector } from "../app/hooks";
 
 import { getRandomNumber, convertFruitTextToEmoji } from "../helpers";
 import { SLOT_MACHINE, REELS_SPINNING_TIMER } from "../config";
-
 import "./style/SlotMachine.css";
 
 let spinReelTimer: any = null;
@@ -55,7 +54,7 @@ const SlotMachine = () => {
         };
       });
       setSpinTimer((prevState: any) => prevState - 1);
-    }, 170);
+    }, 120);
   }, []);
 
   const spin = () => {
@@ -114,7 +113,7 @@ const SlotMachine = () => {
   }, [slotMachine.winningCoins]);
 
   useEffect(() => {
-    spinningDisplayInterval = setInterval(spinDisplayAnimation, 800);
+    spinningDisplayInterval = setInterval(spinDisplayAnimation, 400);
     return () => {
       clearInterval(spinningDisplayInterval);
     };
@@ -125,9 +124,15 @@ const SlotMachine = () => {
       <div className="slot-machine metal linear">
         <h5>🎰Slot Machine</h5>
         <div className="slot-machine-reels ">
-          <span>{convertFruitTextToEmoji(reels.reel1)}</span>
-          <span>{convertFruitTextToEmoji(reels.reel2)}</span>
-          <span>{convertFruitTextToEmoji(reels.reel3)}</span>
+          <span className={letReelSpin.reel1 ? "active-reel" : ""}>
+            {convertFruitTextToEmoji(reels.reel1)}
+          </span>
+          <span className={letReelSpin.reel2 ? "active-reel" : ""}>
+            {convertFruitTextToEmoji(reels.reel2)}
+          </span>
+          <span className={letReelSpin.reel3 ? "active-reel" : ""}>
+            {convertFruitTextToEmoji(reels.reel3)}
+          </span>
         </div>
         <div className="slot-machine-coins-container">
           <span>{coins.toString().padStart(7, "0")}</span>

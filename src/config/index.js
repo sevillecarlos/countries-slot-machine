@@ -32,4 +32,4 @@ export const SLOT_MACHINE = {
   ],
 };
 
-export const REELS_SPINNING_TIMER = 15;
+export const REELS_SPINNING_TIMER = 10;

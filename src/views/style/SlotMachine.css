@@ -39,7 +39,9 @@
   text-shadow: 5px 5px #000000;
   font-size: 3.4vw;
 }
-
+.active-reel{
+  background-color: rgba(128, 128, 128, 0.226) !important;
+}
 .slot-machine-reels span {
   font-size: 6vw;
   padding: 10px;
@@ -104,28 +106,34 @@
 /* Small tablets to big tablets: from 768 to 1032*/
 @media only screen and (max-width: 1032px) {
   .slot-machine {
-    width: 70%;
+    width: 80%;
+    padding: 20px;
+    margin-top: 20% !important;
   }
   .slot-machine h5 {
-    font-size: 5vw;
+    font-size: 7vw;
     text-shadow: 3px 3px #000000;
   }
 
   .slot-machine-reels span {
-    font-size: 10vw;
+    font-size: 14.2vw;
+    padding: 8px !important;
     text-shadow: 4px 4px #000000;
     border: 1px solid black;
     margin-left: 1px;
   }
 
   .slot-machine-coins-container span {
-    font-size: 5vw !important;
+    font-size: 7vw !important;
+  }
+  .slot-machine-coins-container {
+    width: 75%;
   }
 
   .slot-machine button {
-    height: 12vw;
-    width: 12vw;
-    font-size: 3vw;
+    height: 20vw;
+    width: 20vw;
+    font-size: 5vw;
   }
 }
 
@@ -157,8 +165,8 @@
   }
 
   .slot-machine button {
-    height: 30vw;
-    width: 30vw;
+    height: 25vw;
+    width: 25vw;
     font-size: 7vw;
   }
 }
