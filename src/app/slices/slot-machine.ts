@@ -7,11 +7,11 @@ const initialState = {
   winningCoins: 0,
 };
 
+//get result of the slot machine from the fetch 
 export const getSlotMachineResult = createAsyncThunk(
   "slot-machine/getSlotMachineResult",
   async (reels: any) => {
     try {
-      console.log(reels);
       const res: any = await axios.post(
         `${process.env.REACT_APP_SERVER_URL}/slot-machine`,
         reels
@@ -31,7 +31,6 @@ const slotMachineSlice = createSlice({
     /**********************************************************************/
     builder.addCase(getSlotMachineResult.fulfilled, (state, action) => {
       state.status = "success";
-      console.log(action.payload)
       const { coins } = action.payload;
       state.winningCoins = coins;
     });

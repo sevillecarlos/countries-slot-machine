@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
+//bootstrap import
 import { Table, Form, FloatingLabel } from "react-bootstrap";
+//redux import
 import { RootStateOrAny } from "react-redux";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { getAllCountries } from "../app/slices/countries";
-import "./style/CountriesForm.css";
-
+//icons components
 import { BiWorld } from "react-icons/bi";
 import { GiModernCity } from "react-icons/gi";
 import { FaMapMarkedAlt } from "react-icons/fa";
+//style
+import "./style/CountriesForm.css";
 
 const ListAllCountryForm = () => {
   const dispatch = useAppDispatch();
@@ -15,25 +18,33 @@ const ListAllCountryForm = () => {
 
   const [countries, setCountries] = useState<Array<any>>([]);
 
+  //filter the countries by select name
   const onChangeFilterByName = (e: any) => {
-    const { value } = e.target;
-    if (value !== "") {
+    //get given name by form
+    const { value: countryName } = e.target;
+    //check if the name is not empty
+    if (countryName !== "") {
+      //filter the countries table with the select country
       const filterByNameCountry = country.listAllCountries?.filter(
         (country: { countryName: string }) =>
-          country.countryName.toLowerCase() === value
+          country.countryName.toLowerCase() === countryName
       );
 
+      //set the filter country to countries state
       setCountries(filterByNameCountry);
     } else {
+      //if the countryName is empty return the original table countries
       setCountries(country.listAllCountries);
     }
   };
 
   useEffect(() => {
+    //make request for all countries when render the component
     dispatch(getAllCountries());
   }, [dispatch]);
 
   useEffect(() => {
+    //check if the list of all country that we call previous call get fullfilled to set to the  countries state
     if (country.listAllCountries.length !== 0)
       setCountries(country.listAllCountries);
   }, [country.listAllCountries]);
@@ -72,6 +83,7 @@ const ListAllCountryForm = () => {
           </tr>
         </thead>
         <tbody>
+          {/* check if the promise status is success to iterate the arrays of countries */}
           {country?.statusGetAllCountries === "success" &&
             countries?.map(
               (
@@ -92,6 +104,7 @@ const ListAllCountryForm = () => {
                 </tr>
               )
             )}
+          {/* check if the promise status is loading for the request */}
 
           {country?.statusGetAllCountries === "loading" && (
             <p>...Loading Countries</p>

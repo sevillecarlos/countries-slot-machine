@@ -1,4 +1,4 @@
-/*Slot machine reels order */
+//Slot machine reels values 
 export const SLOT_MACHINE = {
   reel1: [
     "cherry",
@@ -31,5 +31,5 @@ export const SLOT_MACHINE = {
     "lemon",
   ],
 };
-
+//time for every spin of the reels
 export const REELS_SPINNING_TIMER = 10;

@@ -1,14 +1,16 @@
 import React, { useCallback, useState } from "react";
+//bootstrap import
 import { Form, Button } from "react-bootstrap";
+//redux import
 import { RootStateOrAny } from "react-redux";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
-import { countriesAction, getListCountries } from "../app/slices/countries";
+import { getListCountries } from "../app/slices/countries";
+//icons components
 import { MdSearch, MdError } from "react-icons/md";
-
 import { BiWorld } from "react-icons/bi";
 import { GiModernCity } from "react-icons/gi";
 import { FaMapMarkedAlt } from "react-icons/fa";
-
+//style
 import "./style/CountriesForm.css";
 
 const ListCountryForm = () => {
@@ -18,15 +20,10 @@ const ListCountryForm = () => {
   const [countryQuery, setCountryQuery] = useState("");
 
   const submitListCountryForm = useCallback(
-    async (e: any) => {
+    (e: any) => {
       e.preventDefault();
-      const { value } = e.target;
-
-      if (value !== "") {
-        await dispatch(getListCountries(countryQuery));
-      } else {
-        dispatch(countriesAction.clearListCountries());
-      }
+      //make request for the countries that match the query
+      dispatch(getListCountries(countryQuery));
     },
     [dispatch, countryQuery]
   );
@@ -46,6 +43,8 @@ const ListCountryForm = () => {
           Search list of countries <MdSearch />
         </Button>
       </Form>
+      {/* check if the promise status is success to iterate the arrays of countries */}
+
       {country.statusGetListCountries === "success" &&
         country.listCountries !== null && (
           <div className="countries-list-container">
@@ -66,9 +65,12 @@ const ListCountryForm = () => {
             ))}
           </div>
         )}
+      {/* check if the promise status is loading for the request */}
+
       {country?.statusGetListCountries === "loading" && (
         <p>...Loading Countries</p>
       )}
+      {/* check if the promise status is reject for the request, and show the exception message */}
 
       {country.statusGetListCountries === "reject" && (
         <p>

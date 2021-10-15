@@ -10,11 +10,12 @@ const initialState = {
   statusGetAllCountries: "idle",
   statusGetCountry: "idle",
   statusGetListCountries: "idle",
-
+  //error for the promise
   errorGetCountry: "",
   errorGetListCountries: "",
 };
 
+//get a unique country from the fetch
 export const getUniqueCountry = createAsyncThunk(
   "countries/getUniqueCountry",
   async (countryQuery: any) => {
@@ -29,6 +30,7 @@ export const getUniqueCountry = createAsyncThunk(
   }
 );
 
+//get a list of countries from the fetch 
 export const getListCountries = createAsyncThunk(
   "countries/getListCountries",
   async (countryQuery: any) => {
@@ -46,6 +48,7 @@ export const getListCountries = createAsyncThunk(
   }
 );
 
+//get a all country from the fetch
 export const getAllCountries = createAsyncThunk(
   "countries/getAllCountries",
   async () => {
@@ -63,11 +66,7 @@ export const getAllCountries = createAsyncThunk(
 const countriesSlice = createSlice({
   name: "countries",
   initialState,
-  reducers: {
-    clearListCountries(state) {
-      state.listCountries = Array<any>();
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     /**********************************************************************/
     builder.addCase(getUniqueCountry.fulfilled, (state, action) => {

@@ -1,13 +1,16 @@
 import React, { useState, useCallback } from "react";
+//bootstrap import
 import { Button, Form } from "react-bootstrap";
+//redux import
 import { RootStateOrAny } from "react-redux";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { getUniqueCountry } from "../app/slices/countries";
+//icons components
 import { MdSearch, MdError } from "react-icons/md";
 import { BiWorld } from "react-icons/bi";
 import { GiModernCity } from "react-icons/gi";
 import { FaMapMarkedAlt } from "react-icons/fa";
-
+//style
 import "./style/CountriesForm.css";
 
 const UniqueCountryForm = () => {
@@ -19,6 +22,7 @@ const UniqueCountryForm = () => {
   const submitUniqueCountryForm = useCallback(
     (e: any) => {
       e.preventDefault();
+      //make request for the countries that match the query
       dispatch(getUniqueCountry(countryQuery));
     },
     [dispatch, countryQuery]
@@ -40,6 +44,8 @@ const UniqueCountryForm = () => {
         </Button>
       </Form>
       <div>
+        {/* check if the promise status is success to iterate the arrays of countries */}
+
         {country.statusGetCountry === "success" && (
           <ul>
             <li>
@@ -55,8 +61,10 @@ const UniqueCountryForm = () => {
             </li>
           </ul>
         )}
+        {/* check if the promise status is loading for the request */}
 
         {country?.statusGetCountry === "loading" && <p>...Loading Country</p>}
+        {/* check if the promise status is reject for the request, and show the exception message */}
 
         {country.statusGetCountry === "reject" && (
           <p>
