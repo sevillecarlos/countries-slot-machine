@@ -35,6 +35,7 @@ const UniqueCountryForm = () => {
           <Form.Label>Type Country Name</Form.Label>
           <Form.Control
             type="text"
+            required
             placeholder="Enter country name"
             onChange={(e) => setCountryQuery(e.target.value)}
           />
